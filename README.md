@@ -1,8 +1,8 @@
-I. Introduction
+# I. Introduction
 
 This project analyzes payment and transaction data from an e-wallet company to understand payment trends, product performance, and user behavior. The goal is to identify key insights that improve transaction efficiency, detect anomalies, and enhance customer experience.
 
-II. Dataset
+# II. Dataset
 
 This dataset contains transactional and payment data from an e-wallet company, capturing key details about monthly payment volumes, product performance, and user transactions. It consists of three main files:
 
@@ -10,9 +10,9 @@ This dataset contains transactional and payment data from an e-wallet company, c
 - **product.csv** – Stores product information, including product id, categories, and team own.
 - **transactions.csv** – Records individual transactions, including transaction IDs, timestamps, amounts, and statuses (e.g., successful, failed, refunded).
 
-III. Explore data
+# III. Explore data
 
-Part 1: EDA
+## Part 1: EDA
 
 EDA is a crucial step to assess data quality before performing in-depth analysis. This process includes checking for missing values, handling duplicates, correcting data types, and identifying potential anomalies in the dataset. The key steps involve:
 
@@ -41,7 +41,7 @@ EDA check:
 - Missing data:
   22 rows in column df_pay["category"]
   22 rows in column df_pay["team_own"]
-	-> Delete rows
+  -> Delete rows
 
   49059 rows in df_trans["sender_id"]
   164795 rows in df_trans["receiver_id"]
@@ -49,23 +49,23 @@ EDA check:
   -> Delete rows in sender_id, delete columns extra_info, imputing data in receiver_id by mode
 
 - Duplicates:
-	df_pay: 0 -> No action
-	df_trans: 27 -> Delete row
+  df_pay: 0 -> No action
+  df_trans: 27 -> Delete row
 
 - Incorrect data types:
   df_pay["report_month"] -> Change to datetime
   df_trans["sender_id","receiver_id"] -> Change to int
   
 - Incorrect values:
-	df_pay:0 -> No action
-	df_trans: 0-> No action
+  df_pay:0 -> No action
+  df_trans: 0-> No action
 
 ```
 
 ```
-#Check each column: missing data? duplicates? incorrect data types?
+**Check each column: missing data? duplicates? incorrect data types?**
 
-#Payment_enriched
+**Payment_enriched**
 
 #dropping missing value
 threshold_pay=len(df_pay) *0.05
@@ -281,7 +281,7 @@ print("The number of transactions, volume, senders and receivers:",valid_transac
     - **1,376 transactions, 4.9 million in volume** → The lowest among all types, but its presence indicates a small but engaged user base using this feature.
     - The **sender count (1,323) is close to the transaction count**, suggesting **individual-driven group payments**, rather than system-automated ones.
     
-    V. Recomendations:
+    # V. Recomendations:
     
     ### **1. Improve performance of the APS team (Lowest-performing team)**
     
