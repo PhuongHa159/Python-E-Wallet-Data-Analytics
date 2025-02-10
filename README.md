@@ -36,7 +36,7 @@ df_trans.info()
 
 ![image.png](attachment:c44816e0-ef9c-4e77-8300-409241074b68:image.png)
 
-```
+
 EDA check:
 - Missing data:
   22 rows in column df_pay["category"]
@@ -60,13 +60,11 @@ EDA check:
   df_pay:0 -> No action
   df_trans: 0-> No action
 
-```
 
-```
 **Check each column: missing data? duplicates? incorrect data types?**
 
 **Payment_enriched**
-
+```
 #dropping missing value
 threshold_pay=len(df_pay) *0.05
 cols_to_drop=df_pay.columns[(df_pay.isna().sum() > 0) & (df_pay.isna().sum() < threshold_pay)]
@@ -94,7 +92,6 @@ for column in df_pay.select_dtypes(include=['int']).columns:
       
 outliers = find_outliers_iqr(df_pay)
 print("Outlier in Payment_enriched:",outliers)
-
 ```
 
 **transactions**
@@ -144,7 +141,7 @@ print("Outlier in transactions:",outliers)
 
 **Part II: Data Wrangling**
 
-1. Top 3 product_ids with the highest volume
+**1. Top 3 product_ids with the highest volume**
 
 ```
 top_three_product=payment_report.groupby("product_id")["volume"].sum().nlargest(3)
@@ -156,7 +153,7 @@ print("Top 3 product_ids with the highest volume:", top_three_product)
 
 **Key observations**: The top 3 products have high transaction volumes, with Product ID 1976 leading at over 61 billion units. Product IDs 429 and 372 follow with significant volumes. These products could be the company's core offerings, and focusing on enhancing and developing them further, along with deeper analysis, could provide valuable insights into customer preferences and sales trends, helping to identify other potential high-performing products.
 
-2. Given that 1 product_id is only owed by 1 team, are there any abnormal products against this rule?
+**2. Given that 1 product_id is only owed by 1 team, are there any abnormal products against this rule?**
 
 ```
   # Find 1 product_id is only owed by 1 team
@@ -168,7 +165,7 @@ abnormal_product = abnormal_product[abnormal_product > 1]
 print("Abnormal products against this rule:",abnormal_product)
 ```
 
-3. Find the team has had the lowest performance (lowest volume) since Q2.2023. Find the category that contributes the least to that team.
+**3. Find the team has had the lowest performance (lowest volume) since Q2.2023. Find the category that contributes the least to that team**
 
 ```
   # Find data since Q2.2023
@@ -188,7 +185,7 @@ print("The category that contributes the least:", least_category)
 **Key observations**: 
 The team with the lowest performance (lowest volume) since Q2.2023 is **APS**. Within this team, the category contributing the least to its volume is **PXXXXXE**. This suggests that APS may need to assess its performance drivers and consider strategies to improve its volume, particularly in the PXXXXXE category.
 
-4. Find the contribution of source_ids of refund transactions (payment_group = ‘refund’), what is the source_id with the highest contribution?
+**4. Find the contribution of source_ids of refund transactions (payment_group = ‘refund’), what is the source_id with the highest contribution?**
 
 ```
   #Find refund transactions
@@ -206,16 +203,16 @@ print("The source_id with the highest contribution:",highest_contribution)
 
 **Key observations**: `Source_id` **38** has the highest number of refund transactions and needs further analysis to understand the root cause. This can help identify potential issues and develop solutions to mitigate them or improve the product.
 
-5. Define type of transactions (‘transaction_type’) for each row, given:
+**5. Define type of transactions (‘transaction_type’) for each row, given:**
 
-- transType = 2 & merchant_id = 1205: Bank Transfer Transaction
-- transType = 2 & merchant_id = 2260: Withdraw Money Transaction
-- transType = 2 & merchant_id = 2270: Top Up Money Transaction
-- transType = 2 & others merchant_id: Payment Transaction
-- transType = 8, merchant_id = 2250: Transfer Money Transaction
-- transType = 8 & others merchant_id: Split Bill Transaction
+- **transType = 2 & merchant_id = 1205: Bank Transfer Transaction**
+- **transType = 2 & merchant_id = 2260: Withdraw Money Transaction**
+- **transType = 2 & merchant_id = 2270: Top Up Money Transaction**
+- **transType = 2 & others merchant_id: Payment Transaction**
+- **transType = 8, merchant_id = 2250: Transfer Money Transaction**
+- **transType = 8 & others merchant_id: Split Bill Transaction**
     
-    Remained cases are invalid transactions
+    **Remained cases are invalid transactions**
     
 
 ```
@@ -242,7 +239,7 @@ transactions['transaction_type'] = transactions.apply(type_transactions, axis=1)
 print("Transaction_type in transactions:",transactions.head())
 ```
 
-6. Of each transaction type (excluding invalid transactions): find the number of transactions, volume, senders and receivers.
+**6. Of each transaction type (excluding invalid transactions): find the number of transactions, volume, senders and receivers.**
 
 ```
 # Find valid_transaction(excluding invalid transactions)
