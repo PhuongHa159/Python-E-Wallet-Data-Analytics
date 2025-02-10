@@ -39,26 +39,26 @@ df_trans.info()
 
 EDA check:
 - Missing data:
-  22 rows in column df_pay["category"]
-  22 rows in column df_pay["team_own"]
+  * 22 rows in column df_pay["category"]
+  * 22 rows in column df_pay["team_own"]
   -> Delete rows
 
-  49059 rows in df_trans["sender_id"]
-  164795 rows in df_trans["receiver_id"]
-  1317907 rows in df_trans["extra_info"]
+  * 49059 rows in df_trans["sender_id"]
+  * 164795 rows in df_trans["receiver_id"]
+  * 1317907 rows in df_trans["extra_info"]
   -> Delete rows in sender_id, delete columns extra_info, imputing data in receiver_id by mode
 
 - Duplicates:
-  df_pay: 0 -> No action
-  df_trans: 27 -> Delete row
+  * df_pay: 0 -> No action
+  * df_trans: 27 -> Delete row
 
 - Incorrect data types:
-  df_pay["report_month"] -> Change to datetime
-  df_trans["sender_id","receiver_id"] -> Change to int
+  * df_pay["report_month"] -> Change to datetime
+  * df_trans["sender_id","receiver_id"] -> Change to int
   
 - Incorrect values:
-  df_pay:0 -> No action
-  df_trans: 0-> No action
+  * df_pay:0 -> No action
+  * df_trans: 0-> No action
 
 
 **Check each column: missing data? duplicates? incorrect data types?**
@@ -139,7 +139,7 @@ print("Outlier in transactions:",outliers)
 
 ```
 
-**Part II: Data Wrangling**
+## Part II: Data Wrangling
 
 **1. Top 3 product_ids with the highest volume**
 
