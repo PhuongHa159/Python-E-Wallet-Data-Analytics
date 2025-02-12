@@ -1,4 +1,4 @@
-# E-WALLET DATA ANALYSIS
+# E-WALLET DATA ANALYTICS
 
 ## I. Introduction
 
