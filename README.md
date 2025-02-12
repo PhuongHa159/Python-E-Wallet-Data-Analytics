@@ -152,7 +152,9 @@ print("Top 3 product_ids with the highest volume:", top_three_product)
 
 <img width="251" alt="Image" src="https://github.com/user-attachments/assets/d653dac5-bbe4-4fa2-8201-f2e38366a06c" />
 
+
 **Key observations**: The top 3 products have high transaction volumes, with Product ID 1976 leading at over 61 billion units. Product IDs 429 and 372 follow with significant volumes. These products could be the company's core offerings, and focusing on enhancing and developing them further, along with deeper analysis, could provide valuable insights into customer preferences and sales trends, helping to identify other potential high-performing products.
+
 
 **2. Given that 1 product_id is only owed by 1 team, are there any abnormal products against this rule?**
 
@@ -184,8 +186,10 @@ print("The category that contributes the least:", least_category)
 ```
 <img width="332" alt="Image" src="https://github.com/user-attachments/assets/02c4e137-5379-4884-bef1-fe77a27e1001" />
 
+
 **Key observations**: 
 The team with the lowest performance (lowest volume) since Q2.2023 is **APS**. Within this team, the category contributing the least to its volume is **PXXXXXE**. This suggests that APS may need to assess its performance drivers and consider strategies to improve its volume, particularly in the PXXXXXE category.
+
 
 **4. Find the contribution of source_ids of refund transactions (payment_group = ‘refund’), what is the source_id with the highest contribution?**
 
@@ -203,7 +207,9 @@ print("The contribution of source_ids of refund transactions:",source_id_contrib
 print("The source_id with the highest contribution:",highest_contribution)
 ```
 <img width="405" alt="Image" src="https://github.com/user-attachments/assets/b4d61c51-7bef-4501-86ee-0487f6834aba" />
+
 **Key observations**: `Source_id` **38** has the highest number of refund transactions and needs further analysis to understand the root cause. This can help identify potential issues and develop solutions to mitigate them or improve the product.
+
 
 **5. Define type of transactions (‘transaction_type’) for each row, given:**
 
