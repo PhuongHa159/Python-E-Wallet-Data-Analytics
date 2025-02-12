@@ -25,9 +25,8 @@ EDA is a crucial step to assess data quality before performing in-depth analysis
 The following analysis examines both the `payment_enriched` and `transactions` datasets to highlight potential data quality issues and recommend appropriate cleaning actions.
 
 Actions:
-
+```
 df_pay.info()
-
 ---
 
 ![image.png](attachment:ddb6845f-bbcf-4ad0-945f-ace3b2b58f32:image.png)
