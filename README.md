@@ -30,7 +30,7 @@ Actions:
 df_pay.info()
 ```
 
-![image.png](attachment:ddb6845f-bbcf-4ad0-945f-ace3b2b58f32:image.png)
+<img width="181" alt="Image" src="https://github.com/user-attachments/assets/51f691f0-4679-4fdc-982b-9e66b305e299" />
 
 ```
 df_trans.info()
